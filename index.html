@@ -17,7 +17,21 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+Adivery.requestNativeAd("caea515c-1f81-42f5-9784-212e6da20f20").then((ad) => {
+  const $ = (id) => document.getElementById(id);
+  
+  $("headline").innerText = ad.headline;
+  $("description").innerText = ad.description;
+  //$("advertiser").innerText = ad.advertiser;
+  $("image").src = ad.image;
+  //$("icon").src = ad.icon;
+  $("call-to-action").innerText = ad.callToAction;
+  $("call-to-action").onclick = () => {
+    ad.recordClick();
+  };
 
+  ad.recordImpression();
+});
   ga('create', 'UA-49734880-3', 'auto');
   ga('send', 'pageview');
 </script>
@@ -401,6 +415,7 @@
   <div class="container">
     <h4 id="headline"><b></b></h4>
     <p id="description"></p>
+    <button id="call-to-action"></button>
   </div>
     </div>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -412,21 +427,7 @@
          data-ad-format="auto"></ins>
     
     <script>
-      Adivery.requestNativeAd("caea515c-1f81-42f5-9784-212e6da20f20").then((ad) => {
-  const $ = (id) => document.getElementById(id);
-  
-  $("headline").innerText = ad.headline;
-  $("description").innerText = ad.description;
-  $("advertiser").innerText = ad.advertiser;
-  $("image").src = ad.image;
-  $("icon").src = ad.icon;
-  $("call-to-action").innerText = ad.callToAction;
-  $("call-to-action").onclick = () => {
-    ad.recordClick();
-  };
-
-  ad.recordImpression();
-});
+      
 
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
