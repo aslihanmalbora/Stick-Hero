@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, inital-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Stick Hero</title>
   <link href="#" rel="icon">
-  <script src="/path/to/dist/adivery.global.js"></script>
+  <script src="adivery.global.js"></script>
   <link rel="stylesheet" href="dist/css/style.min.css?5">
 </head>
 <body>
   
 <script>
+  Adivery.configure("fe6b666a-e8b2-49b8-a94e-7536904c710d");
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -402,7 +403,24 @@
          data-ad-client="ca-pub-1157636439125028"
          data-ad-slot="1029634598"
          data-ad-format="auto"></ins>
+    
     <script>
+      Adivery.requestNativeAd("PUT_YOUR_PLACEMENT_ID_HERE").then((ad) => {
+  const $ = (id) => document.getElementById(id);
+  
+  $("headline").innerText = ad.headline;
+  $("description").innerText = ad.description;
+  $("advertiser").innerText = ad.advertiser;
+  $("image").src = ad.image;
+  $("icon").src = ad.icon;
+  $("call-to-action").innerText = ad.callToAction;
+  $("call-to-action").onclick = () => {
+    ad.recordClick();
+  };
+
+  ad.recordImpression();
+});
+
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
